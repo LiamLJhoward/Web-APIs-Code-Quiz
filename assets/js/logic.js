@@ -26,13 +26,18 @@ function startTimer() {
 
                 // Clears interval and stops timer
                 // clearInterval(timer);
+                
+                // Timer penalty for giving a wrong answer
+                if (answerGiven === false) {
+                    timerCount - 10;
+                }
             
     }
     
     // If time has ran out
     if (timerCount === 0) {
         // Clears interval and sets lose function
-        // clearInterval(timer);
+        clearInterval(timer);
         //lose
     } 
 }, 1000);
