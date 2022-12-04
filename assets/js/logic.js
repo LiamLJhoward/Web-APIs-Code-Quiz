@@ -3,10 +3,11 @@ let startButton = document.querySelector("#start");
 let startScreen = document.querySelector("#start-screen");
 let questionTitle = document.querySelector("#question-title");
 let questions = document.querySelector("#questions");
+let choices = document.querySelector("choices");
 
 let timer;
 let timerCount;
-
+questionTitle = "";
 
 
 // Start Game
@@ -31,12 +32,12 @@ function startTimer() {
                 // Clears interval and stops timer
                 // clearInterval(timer);
                 
-                // Timer penalty for giving a wrong answer
-                if (answerGiven === false) {
-                    timerCount - 10;
-                }
+                // // Timer penalty for giving a wrong answer
+                // if (answerGiven === false) {
+                //     timerCount - 10;
+                // }
             
-    }
+    
     
     // If time has ran out
     if (timerCount === 0) {
@@ -44,7 +45,7 @@ function startTimer() {
         clearInterval(timer);
         //lose
     } 
-}, 1000);
+}}, 1000);
 }
 
 // Attach event listener to start button
@@ -53,15 +54,19 @@ startButton.addEventListener("click", startGame);
 
 // Start questions
 function startQuestions() {
-    
+    document.getElementById("questions").classList.remove("hide");
+    questions.textContent = question.questionOne;
+    choices.textContent = answerChoices.choiceOne;
 
+console.log(question.questionNine);
+console.log(answerChoices.choiceOne);
 }
 
 
 
 // Questions & answers
 let question = {
-        questionOne: "All right Jim, your quarterlies look very good. How are things going at the library?",
+        questionOne: `"All right Jim, your quarterlies look very good. How are things going at the library?"`,
         questionTwo: "Shall I play for you Pa Rum Pum Pum Pum, I have no gifts for you Pa Rum Pum Pum Pum.",
         questionThree: "You guys gotta update your resumes, just like I'm doing.",
         questionFour: "So what does downsizing actually mean?",
@@ -99,3 +104,4 @@ let answers = {
     answerTen: "Robert California"
 
 }
+
